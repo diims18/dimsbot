@@ -17,8 +17,8 @@ const menu = require("./lib/menu.js");
 const donasi = require("./lib/donasi.js");
 const info = require("./lib/info.js");
 /////////////////
-const BotName = 'Dims Bot🤖'; 
-const instagram = 'https://instagram.com/diims18'; 
+const BotName = 'Dims Bot'; 
+const instagram = 'https://instagram.com/diims_18'; 
 const whatsapp = 'wa.me/628888394952'; 
 const kapanbotaktif = '24 JAM'; 
 //const grupch1 = 'belum ada grup'; 
