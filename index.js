@@ -104,35 +104,36 @@ if (text.includes('!nulis')){
 }
 
 
-else if (text.includes("!tts")) {
-  var teks = text.split("!ttsid ")[1];
-  var path = require('path');
-  var text1 = teks.slice(6);
-  text1 = suara;
-  var suara = text.replace(/!ttsid/g, text1);
-  var filepath = 'mp3/bacot.wav';
-  
-  
-/*
- * save audio file
- */
-
-gtts.save(filepath, suara, function() {
-  console.log(`${filepath} MP3 SAVED!`)
-});
-await new Promise(resolve => setTimeout(resolve, 500));
-
-	if(suara.length > 200){ // check longness of text, because otherways google translate will give me a empty file
-  msg.reply("Text to long, split in text of 200 characters")
-}else{
-
-const buffer = fs.readFileSync(filepath)
-	conn.sendMessage(id , buffer , MessageType.audio);
-
-};
-
-
-}
+case '!tts':
+            if (args.length === 1) return client.reply(from, 'Kirim perintah *!tts [id, en, jp, ar] [teks]*, contoh *!tts id halo semua*')
+            const ttsId = require('node-gtts')('id')
+            const ttsEn = require('node-gtts')('en')
+	    const ttsJp = require('node-gtts')('ja')
+            const ttsAr = require('node-gtts')('ar')
+            const dataText = body.slice(8)
+            if (dataText === '') return client.reply(from, 'Baka?', id)
+            if (dataText.length > 500) return client.reply(from, 'Teks terlalu panjang!', id)
+            var dataBhs = body.slice(5, 7)
+	        if (dataBhs == 'id') {
+                ttsId.save('./media/tts/resId.mp3', dataText, function () {
+                    client.sendPtt(from, './media/tts/resId.mp3', id)
+                })
+            } else if (dataBhs == 'en') {
+                ttsEn.save('./media/tts/resEn.mp3', dataText, function () {
+                    client.sendPtt(from, './media/tts/resEn.mp3', id)
+                })
+            } else if (dataBhs == 'jp') {
+                ttsJp.save('./media/tts/resJp.mp3', dataText, function () {
+                    client.sendPtt(from, './media/tts/resJp.mp3', id)
+                })
+	    } else if (dataBhs == 'ar') {
+                ttsAr.save('./media/tts/resAr.mp3', dataText, function () {
+                    client.sendPtt(from, './media/tts/resAr.mp3', id)
+                })
+            } else {
+                client.reply(from, 'Masukkan data bahasa : [id] untuk indonesia, [en] untuk inggris, [jp] untuk jepang, dan [ar] untuk arab', id)
+            }
+            break
 
 
 if (text.includes("!say")){
