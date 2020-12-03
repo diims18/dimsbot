@@ -501,7 +501,7 @@ _${kata}_
 });
 await new Promise(resolve => setTimeout(resolve, 500));*/
 
-/*	if(suara.length > 200){ // check longness of text, because otherways google translate will give me a empty file
+/*	
   msg.reply("Text kepanjangan bro!")
 }else{
 const buffer = fs.readFileSync(filepath)
