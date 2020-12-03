@@ -103,39 +103,6 @@ if (text.includes('!nulis')){
     })
 }
 
-
-if '!tts':
-            if (args.length === 1) return client.reply(from, 'Kirim perintah *!tts [id, en, jp, ar] [teks]*, contoh *!tts id halo semua*')
-            const ttsId = require('node-gtts')('id')
-            const ttsEn = require('node-gtts')('en')
-	    const ttsJp = require('node-gtts')('ja')
-            const ttsAr = require('node-gtts')('ar')
-            const dataText = body.slice(8)
-            if (dataText === '') return client.reply(from, 'Baka?', id)
-            if (dataText.length > 500) return client.reply(from, 'Teks terlalu panjang!', id)
-            var dataBhs = body.slice(5, 7)
-	        if (dataBhs == 'id') {
-                ttsId.save('./media/tts/resId.mp3', dataText, function () {
-                    client.sendPtt(from, './media/tts/resId.mp3', id)
-                })
-            } else if (dataBhs == 'en') {
-                ttsEn.save('./media/tts/resEn.mp3', dataText, function () {
-                    client.sendPtt(from, './media/tts/resEn.mp3', id)
-                })
-            } else if (dataBhs == 'jp') {
-                ttsJp.save('./media/tts/resJp.mp3', dataText, function () {
-                    client.sendPtt(from, './media/tts/resJp.mp3', id)
-                })
-	    } else if (dataBhs == 'ar') {
-                ttsAr.save('./media/tts/resAr.mp3', dataText, function () {
-                    client.sendPtt(from, './media/tts/resAr.mp3', id)
-                })
-            } else {
-                client.reply(from, 'Masukkan data bahasa : [id] untuk indonesia, [en] untuk inggris, [jp] untuk jepang, dan [ar] untuk arab', id)
-            }
-            break
-
-
 if (text.includes("!say")){
   const teks = text.replace(/!say /, "")
 conn.sendMessage(id, teks, MessageType.text)
