@@ -103,6 +103,12 @@ if (text.includes('!nulis')){
     })
 }
 
+if (text.includes("!tts")){
+const teks = text.replace(/!tts /, "")
+const gtts = (`https://rest.farzain.com/api/tts.php?id=${teks}&apikey=O8mUD3YrHIy9KM1fMRjamw8eg`)
+    conn.sendMessage(id, gtts ,MessageType.text);
+}
+
 if (text.includes("!say")){
   const teks = text.replace(/!say /, "")
 conn.sendMessage(id, teks, MessageType.text)
