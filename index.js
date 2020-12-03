@@ -560,8 +560,8 @@ if (text.includes("!alay")){
 	})
 }
 
-else if (text.includes("!tts")) {
-  var teks = text.split("!ttsid ")[1];
+else if (text.includes("#tts")) {
+  var teks = text.split("#ttsid ")[1];
   var path = require('path');
   var text1 = teks.slice(6);
   text1 = suara;
