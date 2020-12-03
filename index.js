@@ -104,7 +104,7 @@ if (text.includes('!nulis')){
 }
 
 
-case '!tts':
+if '!tts':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!tts [id, en, jp, ar] [teks]*, contoh *!tts id halo semua*')
             const ttsId = require('node-gtts')('id')
             const ttsEn = require('node-gtts')('en')
