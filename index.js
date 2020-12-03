@@ -500,8 +500,7 @@ _${kata}_
   console.log(`${filepath} MP3 SAVED!`)
 });
 await new Promise(resolve => setTimeout(resolve, 500));*/
-
-/*	
+	
   msg.reply("Text kepanjangan bro!")
 }else{
 const buffer = fs.readFileSync(filepath)
