@@ -483,30 +483,6 @@ _${kata}_
     });
     }
 
-   else if (text.includes("#tts")) {
-  var teks = text.split("#ttsid ")[1];
-  var path = require('path');
-  var text1 = teks.slice(6);
-  text1 = suara;
-  var suara = text.replace(/#ttsid/g, text1);
-  var filepath = 'mp3/bacot.wav';
-  
-  
-/*
- * save audio file
- */
-
-/*gtts.save(filepath, suara, function() {
-  console.log(`${filepath} MP3 SAVED!`)
-});
-await new Promise(resolve => setTimeout(resolve, 500));*/
-	
-  msg.reply("Text kepanjangan bro!")
-}else{
-const buffer = fs.readFileSync(filepath)
-	conn.sendMessage(id , buffer , MessageType.audio);
-};
-}
 
    if (text.includes("!pict cowok"))
    {
